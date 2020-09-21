@@ -47,6 +47,9 @@ def buildData():
             for howtouse_block in howtouse_blocks:
                 howtouses.append(howtouse_block.text)
 
+            normalize = f"{level} {header} {sumary} {' '.join(expressions)} {' '.join(howtouses)}".lower()
+            normalize = " ".join(filter(str.isalnum, normalize.split()))
+
             blocks.append(
                 {
                     "level": level,
@@ -54,11 +57,12 @@ def buildData():
                     "sumary": sumary,
                     "expressions": expressions,
                     "howtouses": howtouses,
+                    "normalize": normalize,
                 }
             )
 
     print(blocks)
-    with open("data.json", "w") as f:
+    with open("../app/src/data.json", "w") as f:
         json.dump(blocks, f)
 
 
