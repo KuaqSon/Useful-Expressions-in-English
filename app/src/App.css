@@ -1,38 +1,118 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.board {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
 }
 
-.App-link {
-  color: #61dafb;
+.b_item {
+  flex: 1;
+  min-width: 400px;
+  border: 2px solid #003266;
+  position: relative;
+  animation: fadeIn 0.8s linear;
+  padding: 20px;
+  padding-top: 40px;
+  margin: 12px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.highlighted {
+  background-color: #003266;
+  color: #ff9;
+}
+
+.b_item .b_level {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  padding: 6px 10px;
+  background-color: #003266;
+  color: #ff9;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.b_sumary {
+  font-size: 14px;
+}
+
+.b_item .b_header {
+  font-size: 28px;
+  display: block;
+  text-align: right;
+  font-weight: 700;
+}
+
+.b_item .b_ex {
+  display: block;
+  font-size: 14px;
+  padding: 4px 0;
+}
+
+.b_ex + .b_ex {
+  border-top: 1px solid #00326668;
+}
+
+.col_title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.top {
+  text-align: center;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  background-color: #ff9;
+  z-index: 10;
+  padding-top: 1px;
+}
+
+.search_input {
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  font-size: 24px;
+  background-color: #003266;
+  color: #ff9;
+  font-weight: 700;
+  width: 400px;
+}
+
+.credit {
+  font-size: 10px;
+  padding: 10px 0;
+}
+
+.credit a {
+  color: #003266;
+}
+
+.top_title {
+  font-size: 28px;
+  font-weight: 700;
+  padding: 8px 0;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .board {
+    flex-direction: column;
+  }
+
+  .b_item {
+    min-width: unset;
+  }
+
+  .search_input {
+    width: unset;
   }
 }
