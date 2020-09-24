@@ -47,7 +47,7 @@ def buildData():
             for howtouse_block in howtouse_blocks:
                 howtouses.append(howtouse_block.text)
 
-            normalize = f"{level} {header} {sumary} {' '.join(expressions)} {' '.join(howtouses)}".lower()
+            normalize = f"{level} {header} {sumary}".lower()
             normalize = " ".join(normalize.split())
 
             blocks.append(

@@ -40,25 +40,15 @@ function Board(props: Props) {
           />
           <div className="col_title">10 expressions to Use In Speaking And Writing:</div>
           {x.expressions.map((ex: string, eIndex: number) => (
-            <Highlighter
-              key={eIndex}
-              highlightClassName="highlighted"
-              className="b_ex"
-              searchWords={query}
-              autoEscape={true}
-              textToHighlight={ex}
-            />
+            <span key={eIndex} className="b_ex">
+              {ex}
+            </span>
           ))}
           <div className="col_title">How To Use These Phrases In Your English: </div>
           {x.howtouses.map((ho: string, eIndex: number) => (
-            <Highlighter
-              key={eIndex}
-              highlightClassName="highlighted"
-              className="b_ex"
-              searchWords={query}
-              autoEscape={true}
-              textToHighlight={ho}
-            />
+            <span key={eIndex} className="b_ex">
+              {ho}
+            </span>
           ))}
         </div>
       ))}
