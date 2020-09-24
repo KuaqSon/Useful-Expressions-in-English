@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7a832cd2775e1a0796d49246cdc19013",
+    "revision": "976f02f467022df45d9454a3b0bbe155",
     "url": "/Useful-Expressions-in-English/index.html"
   },
   {
-    "revision": "4f02554d69ca92e8dca1",
+    "revision": "1df4ab3abb8bef7ab64d",
     "url": "/Useful-Expressions-in-English/static/css/main.b10d6e08.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Useful-Expressions-in-English/static/js/2.7404b2d7.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4f02554d69ca92e8dca1",
-    "url": "/Useful-Expressions-in-English/static/js/main.bde7add9.chunk.js"
+    "revision": "1df4ab3abb8bef7ab64d",
+    "url": "/Useful-Expressions-in-English/static/js/main.1ee949be.chunk.js"
   },
   {
     "revision": "dcef8c8079846b93b4ee",
