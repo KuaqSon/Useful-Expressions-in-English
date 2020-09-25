@@ -21,6 +21,15 @@ def buildData():
         rows = block_view.find_all("h3")
         for row in rows:
             header = row.find("a").text
+            existing_block_i = [
+                i for i, b in enumerate(blocks) if b["header"] == header
+            ]
+
+            if len(existing_block_i) > 0:
+                index = existing_block_i[0]
+                blocks[index]["levels"] = blocks[index]["levels"] + [level]
+                continue
+
             href = f"""{BASE_URL}{row.find("a")["href"]}"""
             sub_page = requests.get(href)
             if sub_page.status_code == 404 or sub_page.text is None:
@@ -47,19 +56,25 @@ def buildData():
             for howtouse_block in howtouse_blocks:
                 howtouses.append(howtouse_block.text)
 
-            normalize = f"{level} {header} {sumary}".lower()
-            normalize = " ".join(normalize.split())
-
             blocks.append(
                 {
-                    "level": level,
+                    "levels": [level],
                     "header": header,
                     "sumary": sumary,
                     "expressions": expressions,
                     "howtouses": howtouses,
-                    "normalize": normalize,
                 }
             )
+
+    for block in blocks:
+        search_level_st = f"{' '.join(block['levels'])} {block['header']}".lower()
+        search_level_nd = f"{block['sumary']}".lower()
+        search_level_rd = (
+            f"{' '.join(block['expressions'])} {' '.join(block['howtouses'])}".lower()
+        )
+        block["search_level_st"] = " ".join(search_level_st.split())
+        block["search_level_nd"] = " ".join(search_level_nd.split())
+        block["search_level_rd"] = " ".join(search_level_rd.split())
 
     print(blocks)
     with open("../app/src/data.json", "w") as f:
@@ -70,7 +85,10 @@ def process():
     try:
         buildData()
     except Exception as e:
+        print("Exception!!")
+        print("")
         print(e)
+        print("")
         print("Build data failed!!")
 
 
